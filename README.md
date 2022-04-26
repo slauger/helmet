@@ -4,6 +4,10 @@ Helmet is a container based on UBI8 for interacting with Kubernetes and OpenShif
 
 It can be used in CI/CD pipelines like GitHub Actions, Gitlab CI or Tekton.
 
+## Image build on Quay
+
+The image is available on [quay.io](https://quay.io/repository/slauger/helmet) as `quay.io/slauger/helmet`.
+
 ## Contents
 
 ### Binaries
