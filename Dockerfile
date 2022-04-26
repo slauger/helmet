@@ -16,7 +16,7 @@ ARG HELM_GIT_VERSION=0.11.1
 ARG HELMFILE_VERSION=0.143.5
 
 # renovate: datasource=github-releases depName=mozilla/sops
-ARG SOPS_VERSION=3.7.1
+ARG SOPS_VERSION=3.7.2
 
 # renovate: datasource=github-releases depName=FiloSottile/age
 ARG AGE_VERSION=1.0.0
