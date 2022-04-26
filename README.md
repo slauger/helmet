@@ -1,30 +1,24 @@
-# helmet
+# OpenShift Clients
 
-Helmet is a container based on UBI8 for interacting with Kubernetes and OpenShift clusters via Helm and Helmfile.
+The OpenShift client `oc` simplifies working with Kubernetes and OpenShift
+clusters, offering a number of advantages over `kubectl` such as easy login,
+kube config file management, and access to developer tools. The `kubectl`
+binary is included alongside for when strict Kubernetes compliance is necessary.
 
-It can be used in CI/CD pipelines like GitHub Actions, Gitlab CI or Tekton.
+To learn more about OpenShift, visit [docs.openshift.com](https://docs.openshift.com)
+and select the version of OpenShift you are using.
 
-## Contents
+## Installing the tools
 
-### Binaries
+After extracting this archive, move the `oc` and `kubectl` binaries
+to a location on your PATH such as `/usr/local/bin`. Then run:
 
-  - [helm](https://github.com/helm/helm)
-  - [helmfile](https://github.com/helmfile/helmfile)
-  - [sops](https://github.com/mozilla/sops)
-  - [age](https://github.com/FiloSottile/age)
-  - [kubectl](https://github.com/kubernetes/kubectl)
-  - [oc](https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/)
+    oc login [API_URL]
 
-### Helm Plugins
+to start a session against an OpenShift cluster. After login, run `oc` and
+`oc help` to learn more about how to get started with OpenShift.
 
-  - [helm-secrets](https://github.com/jkroepke/helm-secrets)
-  - [helm-diff](https://github.com/databus23/helm-diff)
-  - [helm-git](https://github.com/aslafy-z/helm-git)
+## License
 
-### Scripts
-
-  - argocd-helmfile.sh (based on [travisghansen/argo-cd-helmfile](https://github.com/travisghansen/argo-cd-helmfile))
-
-## Author
-
-  - [slauger](https://github.com/slauger)
+OpenShift is licensed under the Apache Public License 2.0. The source code for this
+program is [located on github](https://github.com/openshift/origin).
