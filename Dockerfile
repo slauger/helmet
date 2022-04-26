@@ -1,0 +1,87 @@
+FROM registry.access.redhat.com/ubi8/ubi@sha256:edb918518a6300897740a81a407fc7ca391d84b8c45830632f29f5282ee071a3 AS builder
+
+# renovate: datasource=github-releases depName=helm/helm
+ARG HELM_VERSION=3.8.2
+
+# renovate: datasource=github-releases depName=jkroepke/helm-secrets
+ARG HELM_SECRETS_VERSION=3.12.0
+
+# renovate: datasource=github-releases depName=databus23/helm-diff
+ARG HELM_DIFF_VERSION=3.4.2
+
+# renovate: datasource=github-releases depName=aslafy-z/helm-git
+ARG HELM_GIT_VERSION=0.11.1
+
+# renovate: datasource=github-releases depName=helmfile/helmfile
+ARG HELMFILE_VERSION=0.143.5
+
+# renovate: datasource=github-releases depName=mozilla/sops
+ARG SOPS_VERSION=3.7.1
+
+# renovate: datasource=github-releases depName=FiloSottile/age
+ARG AGE_VERSION=1.0.0
+
+# renovate: datasource=github-releases depName=kubernetes/kubernetes
+ARG KUBECTL_VERSION=1.21.6
+
+# renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release
+ARG OPENSHIFT_VERSION=4.9.29
+
+ENV HELM_PLUGINS=/usr/local/helm-plugins
+
+RUN yum install -y unzip && \
+    yum clean all && \
+    rm -rf /var/cache/dnf/*
+
+# helm-secrets
+RUN mkdir -p /usr/local/helm-plugins && \
+    curl -fsSL -o helm-secrets.tar.gz https://github.com/jkroepke/helm-secrets/releases/download/v${HELM_SECRETS_VERSION}/helm-secrets.tar.gz && \
+    tar vxzf helm-secrets.tar.gz -C /usr/local/helm-plugins && \
+    rm helm-secrets.tar.gz
+
+# helm-diff
+RUN curl -fsSL -o helm-diff-linux-amd64.tgz https://github.com/databus23/helm-diff/releases/download/v${HELM_DIFF_VERSION}/helm-diff-linux-amd64.tgz && \
+    tar vxzf helm-diff-linux-amd64.tgz -C /usr/local/helm-plugins && \
+    rm helm-diff-linux-amd64.tgz
+
+# helm-git
+RUN curl -fsSL -o helm-git.zip https://github.com/aslafy-z/helm-git/archive/refs/tags/v${HELM_GIT_VERSION}.zip && \
+    unzip helm-git.zip -d /usr/local/helm-plugins && \
+    rm helm-git.zip
+
+# helm
+RUN curl -fsSL -o helm-linux-amd64.tar.gz https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
+    tar vxzf helm-linux-amd64.tar.gz linux-amd64/helm && \
+    mv linux-amd64/helm /usr/local/bin/helm && \
+    chmod +x /usr/local/bin/helm && \
+    rm helm-linux-amd64.tar.gz && \
+    rm -rf linux-amd64
+
+# helmfile
+RUN curl -fsSL -o /usr/local/bin/helmfile https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 && \
+    chmod +x /usr/local/bin/helmfile
+
+# sops
+RUN curl -fSSL -o /usr/local/bin/sops https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux && \
+    chmod +x /usr/local/bin/sops
+
+# age
+RUN curl -fSSL -o age-linux-amd64.tar.gz https://github.com/FiloSottile/age/releases/download/v${AGE_VERSION}/age-v${AGE_VERSION}-linux-amd64.tar.gz && \
+    tar vxzf age-linux-amd64.tar.gz && \
+    mv age/age /usr/local/bin/age && \
+    mv age/age-keygen /usr/local/bin/age-keygen && \
+    rm age-linux-amd64.tar.gz && \
+    rm -rf age
+
+# kubectl
+RUN curl -fSSL -o /usr/local/bin/kubectl https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
+    chmod +x /usr/local/bin/kubectl
+
+# argocd-helmfile
+COPY argocd-helmfile.sh /usr/local/bin/argocd-helmfile.sh
+RUN chmod +x /usr/local/bin/argocd-helmfile.sh
+
+FROM registry.access.redhat.com/ubi8/ubi@sha256:edb918518a6300897740a81a407fc7ca391d84b8c45830632f29f5282ee071a3 AS runtime
+
+COPY --from=builder /usr/local/bin/helm /usr/local/bin/helmfile /usr/local/bin/sops /usr/local/bin/age /usr/local/bin/age-keygen /usr/local/bin/kubectl /usr/local/bin/argocd-helmfile.sh /usr/local/bin/
+COPY --from=builder /usr/local/helm-plugins /usr/local/helm-plugins

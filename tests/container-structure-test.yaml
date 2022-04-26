@@ -1,0 +1,22 @@
+---
+schemaVersion: "2.0.0"
+
+commandTests:
+  #- name: "openshift clients exists"
+  #  command: "oc"
+  #  args: ["version"]
+  - name: "kubectl exists"
+    command: "kubectl"
+    args: ["version", "--client"]
+  - name: "helm exists"
+    command: "helm"
+    args: ["version"]
+  - name: "helmfile exists"
+    command: "helmfile"
+    args: ["version"]
+  - name: "sops exists"
+    command: "sops"
+    args: ["-v"]
+  - name: "age exists"
+    command: "age"
+    args: ["--version"]
