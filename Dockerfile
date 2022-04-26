@@ -24,7 +24,7 @@ ARG AGE_VERSION=1.0.0
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
 ARG KUBECTL_VERSION=1.21.12
 
-# renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose extractVersion=^v?(?<version>4\.([0-9\.]+).([0-9\.]+)).*$
+# renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose extractVersion=^v?(?<version>4\.([0-9\.]+).([0-9\.]+))
 ARG OPENSHIFT_VERSION=4.9.29
 
 ENV HELM_PLUGINS=/usr/local/helm-plugins
