@@ -1,27 +1,27 @@
 FROM registry.access.redhat.com/ubi8/ubi@sha256:edb918518a6300897740a81a407fc7ca391d84b8c45830632f29f5282ee071a3 AS builder
 
-# renovate: datasource=github-releases depName=helm/helm
+# renovate: datasource=github-tags depName=helm/helm
 ARG HELM_VERSION=3.8.2
 
-# renovate: datasource=github-releases depName=jkroepke/helm-secrets
+# renovate: datasource=github-tags depName=jkroepke/helm-secrets
 ARG HELM_SECRETS_VERSION=3.13.0
 
-# renovate: datasource=github-releases depName=databus23/helm-diff
+# renovate: datasource=github-tags depName=databus23/helm-diff
 ARG HELM_DIFF_VERSION=3.4.2
 
-# renovate: datasource=github-releases depName=aslafy-z/helm-git
+# renovate: datasource=github-tags depName=aslafy-z/helm-git
 ARG HELM_GIT_VERSION=0.11.1
 
-# renovate: datasource=github-releases depName=helmfile/helmfile
+# renovate: datasource=github-tags depName=helmfile/helmfile
 ARG HELMFILE_VERSION=0.143.5
 
-# renovate: datasource=github-releases depName=mozilla/sops
+# renovate: datasource=github-tags depName=mozilla/sops
 ARG SOPS_VERSION=3.7.2
 
-# renovate: datasource=github-releases depName=FiloSottile/age
+# renovate: datasource=github-tags depName=FiloSottile/age
 ARG AGE_VERSION=1.0.0
 
-# renovate: datasource=github-releases depName=kubernetes/kubernetes
+# renovate: datasource=github-tags depName=kubernetes/kubernetes
 ARG KUBECTL_VERSION=1.21.12
 
 # renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose
