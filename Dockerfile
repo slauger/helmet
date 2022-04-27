@@ -27,8 +27,6 @@ ARG KUBECTL_VERSION=1.21.12
 # renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose
 ARG OPENSHIFT_VERSION=4.9.29
 
-ENV HELM_PLUGINS=/usr/local/helm-plugins
-
 RUN yum install -y unzip && \
     yum clean all && \
     rm -rf /var/cache/dnf/*
@@ -88,6 +86,8 @@ COPY argocd-helmfile.sh /usr/local/bin/argocd-helmfile.sh
 RUN chmod +x /usr/local/bin/argocd-helmfile.sh
 
 FROM registry.access.redhat.com/ubi8/ubi@sha256:edb918518a6300897740a81a407fc7ca391d84b8c45830632f29f5282ee071a3 AS runtime
+
+ENV HELM_PLUGINS=/usr/local/helm-plugins
 
 COPY --from=builder /usr/local/bin/helm /usr/local/bin/helmfile /usr/local/bin/sops /usr/local/bin/age /usr/local/bin/age-keygen /usr/local/bin/kubectl /usr/local/bin/oc /usr/local/bin/argocd-helmfile.sh /usr/local/bin/
 COPY --from=builder /usr/local/helm-plugins /usr/local/helm-plugins
