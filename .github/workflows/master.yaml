@@ -19,6 +19,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
+    - name: Login to Docker Registry
+      run: docker login -u "${{ secrets.REGISTRY_USERNAME }}" -p "${{ secrets.REGISTRY_PASSWORD }}" "${{ secrets.REGISTRY_HOST }}"
     - name: Install dependencies
       run: npx ci
     - name: Install semantic-release extra plugins
