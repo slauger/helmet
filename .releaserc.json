@@ -22,6 +22,12 @@
       {
         "assets": []
       }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "publishCmd": "make push && make tag TAG_FROM=latest TAG_TO=${nextRelease.version} && make push CONTAINER_TAG=${nextRelease.version}"
+      }
     ]
   ]
 }

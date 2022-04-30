@@ -1,4 +1,4 @@
-name: Docker Build
+name: Release
 
 on:
   push:
@@ -6,11 +6,31 @@ on:
       - master
 
 jobs:
-  container-build-master:
+  release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout repository
+      uses: actions/checkout@v2
     - name: Build the Docker image
       run: make build
     - name: Test Docker image
       run: make test
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+    - name: Install dependencies
+      run: npx ci
+    - name: Install semantic-release extra plugins
+      run: |
+        npm install --save-dev \
+          @semantic-release/changelog
+          @semantic-release/commit-analyzer
+          @semantic-release/git
+          @semantic-release/github
+          @semantic-release/release-notes-generator
+          semantic-release
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx semantic-release
