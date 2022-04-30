@@ -24,11 +24,11 @@ jobs:
     - name: Install semantic-release and extra plugins
       run: |
         npm install --save-dev \
-          @semantic-release/changelog
-          @semantic-release/commit-analyzer
-          @semantic-release/git
-          @semantic-release/github
-          @semantic-release/release-notes-generator
+          @semantic-release/changelog \
+          @semantic-release/commit-analyzer \
+          @semantic-release/git \
+          @semantic-release/github \
+          @semantic-release/release-notes-generator \
           semantic-release
     - name: Release
       env:
