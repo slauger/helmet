@@ -10,7 +10,7 @@ ARG HELM_SECRETS_VERSION=3.14.0
 ARG HELM_DIFF_VERSION=3.5.0
 
 # renovate: datasource=github-tags depName=aslafy-z/helm-git
-ARG HELM_GIT_VERSION=0.11.1
+ARG HELM_GIT_VERSION=0.11.2
 
 # renovate: datasource=github-tags depName=helmfile/helmfile
 ARG HELMFILE_VERSION=0.144.0
