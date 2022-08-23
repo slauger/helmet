@@ -1,3 +1,14 @@
+## [1.0.2](https://github.com/slauger/helmet/compare/v1.0.1...v1.0.2) (2022-08-23)
+
+
+### Bug Fixes
+
+* **deps:** update github-tags dependency helm/helm to v3.9.3 ([3f49ac8](https://github.com/slauger/helmet/commit/3f49ac808ad6f16fafc78002bcb0b7b0887ed7b9))
+* **deps:** update github-tags dependency jkroepke/helm-secrets to v3.15.0 ([78861d0](https://github.com/slauger/helmet/commit/78861d0d15897f83d11221df1004e3b3d21069de))
+* **deps:** update github-tags dependency kubernetes/kubernetes to v1.24.4 ([bf1c3e2](https://github.com/slauger/helmet/commit/bf1c3e23aca6bfac693e3f36cdd3c17d270859da))
+* **deps:** update quay.io/openshift-release-dev/ocp-release docker tag to v4.9.46 ([006e4ff](https://github.com/slauger/helmet/commit/006e4ffba6e104f573c50aff618d3b19148fb00f))
+* **deps:** update registry.access.redhat.com/ubi8/ubi docker digest to 6edca39 ([57b8e50](https://github.com/slauger/helmet/commit/57b8e504e648ddcdd4240e2d2e09508e57c3bad8))
+
 ## [1.0.1](https://github.com/slauger/helmet/compare/v1.0.0...v1.0.1) (2022-06-18)
 
 
