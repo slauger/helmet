@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/slauger/helmet/compare/v1.0.3...v1.0.4) (2022-08-23)
+
+
+### Bug Fixes
+
+* use automatic GITHUB_TOKEN ([1303e45](https://github.com/slauger/helmet/commit/1303e45a0d1b4b9b6f5bd0ad58b4224ebc78ce49))
+* use automatic GITHUB_TOKEN ([f4171a6](https://github.com/slauger/helmet/commit/f4171a6b8baa98a7c57b7030420b0f32a82e2378))
+
 ## [1.0.3](https://github.com/slauger/helmet/compare/v1.0.2...v1.0.3) (2022-08-23)
 
 
