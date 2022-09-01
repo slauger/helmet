@@ -25,7 +25,7 @@ ARG AGE_VERSION=1.0.0
 ARG KUBECTL_VERSION=1.25.0
 
 # renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose
-ARG OPENSHIFT_VERSION=4.11.2
+ARG OPENSHIFT_VERSION=4.11.3
 
 RUN yum install -y unzip && \
     yum clean all && \
