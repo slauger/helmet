@@ -22,7 +22,7 @@ ARG SOPS_VERSION=3.7.3
 ARG AGE_VERSION=1.0.0
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
-ARG KUBECTL_VERSION=1.25.0
+ARG KUBECTL_VERSION=1.25.1
 
 # renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose
 ARG OPENSHIFT_VERSION=4.11.4
