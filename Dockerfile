@@ -13,7 +13,7 @@ ARG HELM_DIFF_VERSION=3.6.0
 ARG HELM_GIT_VERSION=0.13.0
 
 # renovate: datasource=github-tags depName=helmfile/helmfile
-ARG HELMFILE_VERSION=0.144.0
+ARG HELMFILE_VERSION=0.147.0
 
 # renovate: datasource=github-tags depName=mozilla/sops
 ARG SOPS_VERSION=3.7.3
@@ -56,15 +56,17 @@ RUN curl -fsSL -o helm-linux-amd64.tar.gz https://get.helm.sh/helm-v${HELM_VERSI
     rm -rf linux-amd64
 
 # helmfile
-RUN curl -fsSL -o /usr/local/bin/helmfile https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 && \
-    chmod +x /usr/local/bin/helmfile
+RUN curl -fsSL -o helmfile_linux_amd64.tar.gz https://github.com/helmfile/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_${HELMFILE_VERSION}_linux_amd64.tar.gz && \
+    tar vxzf helmfile_linux_amd64.tar.gz helmfile && \
+    mv helmfile /usr/local/bin/helmfile && \
+    rm helmfile_linux_amd64.tar.gz
 
 # sops
-RUN curl -fSSL -o /usr/local/bin/sops https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux && \
+RUN curl -fsSL -o /usr/local/bin/sops https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux && \
     chmod +x /usr/local/bin/sops
 
 # age
-RUN curl -fSSL -o age-linux-amd64.tar.gz https://github.com/FiloSottile/age/releases/download/v${AGE_VERSION}/age-v${AGE_VERSION}-linux-amd64.tar.gz && \
+RUN curl -fsSL -o age-linux-amd64.tar.gz https://github.com/FiloSottile/age/releases/download/v${AGE_VERSION}/age-v${AGE_VERSION}-linux-amd64.tar.gz && \
     tar vxzf age-linux-amd64.tar.gz && \
     mv age/age /usr/local/bin/age && \
     mv age/age-keygen /usr/local/bin/age-keygen && \
@@ -72,11 +74,11 @@ RUN curl -fSSL -o age-linux-amd64.tar.gz https://github.com/FiloSottile/age/rele
     rm -rf age
 
 # kubectl
-RUN curl -fSSL -o /usr/local/bin/kubectl https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
+RUN curl -fsSL -o /usr/local/bin/kubectl https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     chmod +x /usr/local/bin/kubectl
 
 # oc
-RUN curl -fSSL -o openshift-client-linux.tar.gz https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/${OPENSHIFT_VERSION}/openshift-client-linux.tar.gz && \
+RUN curl -fsSL -o openshift-client-linux.tar.gz https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/${OPENSHIFT_VERSION}/openshift-client-linux.tar.gz && \
     tar vxzf openshift-client-linux.tar.gz oc && \
     mv oc /usr/local/bin/oc && \
     chmod +x /usr/local/bin/oc
