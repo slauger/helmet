@@ -19,7 +19,7 @@ ARG HELMFILE_VERSION=0.147.0
 ARG SOPS_VERSION=3.7.3
 
 # renovate: datasource=github-tags depName=FiloSottile/age
-ARG AGE_VERSION=1.0.0
+ARG AGE_VERSION=1.1.1
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
 ARG KUBECTL_VERSION=1.27.1
