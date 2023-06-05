@@ -7,7 +7,7 @@ ARG HELM_VERSION=3.12.0
 ARG HELM_SECRETS_VERSION=4.4.2
 
 # renovate: datasource=github-tags depName=databus23/helm-diff
-ARG HELM_DIFF_VERSION=3.8.0
+ARG HELM_DIFF_VERSION=3.8.1
 
 # renovate: datasource=github-tags depName=aslafy-z/helm-git
 ARG HELM_GIT_VERSION=0.15.1
