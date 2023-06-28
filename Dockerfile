@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi@sha256:a7143118671dfc61aca46e8ab9e488500495a3c4c73a69577ca9386564614c13 AS builder
+FROM registry.access.redhat.com/ubi8/ubi@sha256:8fea2399f44a9dfdfa18eec4e3e5d2e1d71f0a865dd1d5c66215a6d68ccafa8a AS builder
 
 # renovate: datasource=github-tags depName=helm/helm
 ARG HELM_VERSION=3.12.1
@@ -87,7 +87,7 @@ RUN curl -fsSL -o openshift-client-linux.tar.gz https://mirror.openshift.com/pub
 COPY argocd-helmfile.sh /usr/local/bin/argocd-helmfile.sh
 RUN chmod +x /usr/local/bin/argocd-helmfile.sh
 
-FROM registry.access.redhat.com/ubi8/ubi@sha256:a7143118671dfc61aca46e8ab9e488500495a3c4c73a69577ca9386564614c13 AS runtime
+FROM registry.access.redhat.com/ubi8/ubi@sha256:8fea2399f44a9dfdfa18eec4e3e5d2e1d71f0a865dd1d5c66215a6d68ccafa8a AS runtime
 
 ENV HELM_PLUGINS=/usr/local/helm-plugins
 
