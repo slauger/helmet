@@ -4,7 +4,7 @@ FROM registry.access.redhat.com/ubi8/ubi@sha256:269e9753043a4066af12649e921c6ad3
 ARG HELM_VERSION=3.12.3
 
 # renovate: datasource=github-tags depName=jkroepke/helm-secrets
-ARG HELM_SECRETS_VERSION=4.5.0
+ARG HELM_SECRETS_VERSION=4.5.1
 
 # renovate: datasource=github-tags depName=databus23/helm-diff
 ARG HELM_DIFF_VERSION=3.8.1
