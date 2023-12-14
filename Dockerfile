@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi8/ubi@sha256:449da7f8f2ef6285a8445a1e31af57a97b9dae5dcf009b1629c59742c89c68c3 AS builder
 
 # renovate: datasource=github-tags depName=helm/helm
-ARG HELM_VERSION=3.13.2
+ARG HELM_VERSION=3.13.3
 
 # renovate: datasource=github-tags depName=jkroepke/helm-secrets
 ARG HELM_SECRETS_VERSION=4.5.1
