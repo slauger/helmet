@@ -13,7 +13,7 @@ ARG HELM_DIFF_VERSION=3.9.9
 ARG HELM_GIT_VERSION=0.17.0
 
 # renovate: datasource=github-tags depName=helmfile/helmfile
-ARG HELMFILE_VERSION=0.167.0
+ARG HELMFILE_VERSION=0.167.1
 
 # renovate: datasource=github-tags depName=mozilla/sops
 ARG SOPS_VERSION=3.7.3
