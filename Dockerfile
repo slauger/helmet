@@ -4,10 +4,10 @@ FROM registry.access.redhat.com/ubi8/ubi@sha256:4f0a4e4deb450583408a06165e92a4dc
 ARG HELM_VERSION=3.15.4
 
 # renovate: datasource=github-tags depName=jkroepke/helm-secrets
-ARG HELM_SECRETS_VERSION=4.6.1
+ARG HELM_SECRETS_VERSION=4.6.5
 
 # renovate: datasource=github-tags depName=databus23/helm-diff
-ARG HELM_DIFF_VERSION=3.9.9
+ARG HELM_DIFF_VERSION=3.9.14
 
 # renovate: datasource=github-tags depName=aslafy-z/helm-git
 ARG HELM_GIT_VERSION=0.17.0
@@ -19,13 +19,13 @@ ARG HELMFILE_VERSION=0.167.1
 ARG SOPS_VERSION=3.7.3
 
 # renovate: datasource=github-tags depName=FiloSottile/age
-ARG AGE_VERSION=1.2.0
+ARG AGE_VERSION=1.2.1
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
-ARG KUBECTL_VERSION=1.31.0
+ARG KUBECTL_VERSION=1.31.11
 
 # renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose
-ARG OPENSHIFT_VERSION=4.15.28
+ARG OPENSHIFT_VERSION=4.15.56
 
 RUN yum install -y unzip && \
     yum clean all && \
