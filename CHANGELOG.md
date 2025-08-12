@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/slauger/helmet/compare/v1.0.7...v1.0.8) (2025-08-12)
+
+
+### Bug Fixes
+
+* update argocd-helmfile.sh ([458aa58](https://github.com/slauger/helmet/commit/458aa58b28ff7d1247c138d5e110ade1d18c4bea))
+
 ## [1.0.7](https://github.com/slauger/helmet/compare/v1.0.6...v1.0.7) (2025-08-12)
 
 
