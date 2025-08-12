@@ -62,7 +62,7 @@ RUN curl -fsSL -o helmfile_linux_amd64.tar.gz https://github.com/helmfile/helmfi
     rm helmfile_linux_amd64.tar.gz
 
 # sops
-RUN curl -fsSL -o /usr/local/bin/sops https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux && \
+RUN curl -fsSL -o /usr/local/bin/sops https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux.amd64 && \
     chmod +x /usr/local/bin/sops
 
 # age
