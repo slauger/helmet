@@ -16,7 +16,7 @@ commandTests:
     args: ["version"]
   - name: "sops exists"
     command: "sops"
-    args: ["-v"]
+    args: ["--version", "--check-for-updates"]
   - name: "age exists"
     command: "age"
     args: ["--version"]
