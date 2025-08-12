@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ConfigManagementPlugin
+metadata:
+  name: helmfile-plugin
+spec:
+  init:
+    command: ["/usr/local/bin/argocd-helmfile.sh"]
+    args: ["init"]
+  generate:
+    command: ["/usr/local/bin/argocd-helmfile.sh"]
+    args: ["generate"]
+  discover:
+    find:
+      command: ["/usr/local/bin/argocd-helmfile.sh", "discover"]

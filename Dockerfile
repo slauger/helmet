@@ -87,6 +87,9 @@ RUN curl -fsSL -o openshift-client-linux.tar.gz https://mirror.openshift.com/pub
 COPY argocd-helmfile.sh /usr/local/bin/argocd-helmfile.sh
 RUN chmod +x /usr/local/bin/argocd-helmfile.sh
 
+RUN mkdir -p /home/argocd/cmp-server/config
+COPY plugin.yaml /home/argocd/cmp-server/config/plugin.yaml
+
 FROM registry.access.redhat.com/ubi9/ubi@sha256:8851294389a8641bd6efcd60f615c69e54fb0e2216ec8259448b35e3d9a11b06 AS runtime
 
 ENV HELM_PLUGINS=/usr/local/helm-plugins
