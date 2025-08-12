@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/slauger/helmet/compare/v1.0.6...v1.0.7) (2025-08-12)
+
+
+### Bug Fixes
+
+* add plugin.yaml (for ArgoCD) ([007ad24](https://github.com/slauger/helmet/commit/007ad2466718f5f6beb4609cbdd1cefc4c78dc6c))
+
 ## [1.0.6](https://github.com/slauger/helmet/compare/v1.0.5...v1.0.6) (2025-08-12)
 
 
