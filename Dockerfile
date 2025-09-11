@@ -1,13 +1,13 @@
 FROM registry.access.redhat.com/ubi9/ubi@sha256:8851294389a8641bd6efcd60f615c69e54fb0e2216ec8259448b35e3d9a11b06 AS builder
 
 # renovate: datasource=github-tags depName=helm/helm
-ARG HELM_VERSION=3.18.4
+ARG HELM_VERSION=3.18.6
 
 # renovate: datasource=github-tags depName=jkroepke/helm-secrets
-ARG HELM_SECRETS_VERSION=4.6.5
+ARG HELM_SECRETS_VERSION=4.6.10
 
 # renovate: datasource=github-tags depName=databus23/helm-diff
-ARG HELM_DIFF_VERSION=3.12.4
+ARG HELM_DIFF_VERSION=3.12.5
 
 # renovate: datasource=github-tags depName=aslafy-z/helm-git
 ARG HELM_GIT_VERSION=0.17.0
@@ -22,10 +22,10 @@ ARG SOPS_VERSION=3.10.2
 ARG AGE_VERSION=1.2.1
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
-ARG KUBECTL_VERSION=1.33.3
+ARG KUBECTL_VERSION=1.33.5
 
 # renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose
-ARG OPENSHIFT_VERSION=4.19.8
+ARG OPENSHIFT_VERSION=4.19.12
 
 RUN yum install -y unzip && \
     yum clean all && \
