@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/slauger/helmet/compare/v1.0.8...v1.0.9) (2025-09-18)
+
+
+### Bug Fixes
+
+* **deps:** update all dependencies in one mr ([77307b4](https://github.com/slauger/helmet/commit/77307b4e233e79531ef6f5dcecb34d300cfda669))
+
 ## [1.0.8](https://github.com/slauger/helmet/compare/v1.0.7...v1.0.8) (2025-08-12)
 
 
