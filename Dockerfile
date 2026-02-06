@@ -1,13 +1,13 @@
-FROM registry.access.redhat.com/ubi9/ubi@sha256:8f1496d50a66e41433031bf5bdedd4635520e692ccd76ffcb649cf9d30d669af AS builder
+FROM registry.access.redhat.com/ubi9/ubi@sha256:b8923f58ef6aebe2b8f543f8f6c5af15c6f9aeeef34ba332f33bf7610012de0c AS builder
 
 # renovate: datasource=github-tags depName=helm/helm
-ARG HELM_VERSION=3.19.0
+ARG HELM_VERSION=3.20.0
 
 # renovate: datasource=github-tags depName=jkroepke/helm-secrets
-ARG HELM_SECRETS_VERSION=4.6.5
+ARG HELM_SECRETS_VERSION=4.7.5
 
 # renovate: datasource=github-tags depName=databus23/helm-diff
-ARG HELM_DIFF_VERSION=3.13.0
+ARG HELM_DIFF_VERSION=3.15.0
 
 # renovate: datasource=github-tags depName=aslafy-z/helm-git
 ARG HELM_GIT_VERSION=0.17.0
@@ -16,16 +16,16 @@ ARG HELM_GIT_VERSION=0.17.0
 ARG HELMFILE_VERSION=0.171.0
 
 # renovate: datasource=github-tags depName=mozilla/sops
-ARG SOPS_VERSION=3.10.2
+ARG SOPS_VERSION=3.11.0
 
 # renovate: datasource=github-tags depName=FiloSottile/age
-ARG AGE_VERSION=1.2.1
+ARG AGE_VERSION=1.3.1
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
-ARG KUBECTL_VERSION=1.34.1
+ARG KUBECTL_VERSION=1.35.0
 
 # renovate: datasource=docker depName=quay.io/openshift-release-dev/ocp-release versioning=loose
-ARG OPENSHIFT_VERSION=4.19.8
+ARG OPENSHIFT_VERSION=4.21.1
 
 RUN yum install -y unzip && \
     yum clean all && \
@@ -90,7 +90,7 @@ RUN chmod +x /usr/local/bin/argocd-helmfile.sh
 RUN mkdir -p /home/argocd/cmp-server/config
 COPY plugin.yaml /home/argocd/cmp-server/config/plugin.yaml
 
-FROM registry.access.redhat.com/ubi9/ubi@sha256:8f1496d50a66e41433031bf5bdedd4635520e692ccd76ffcb649cf9d30d669af AS runtime
+FROM registry.access.redhat.com/ubi9/ubi@sha256:b8923f58ef6aebe2b8f543f8f6c5af15c6f9aeeef34ba332f33bf7610012de0c AS runtime
 
 ENV HELM_PLUGINS=/usr/local/helm-plugins
 
