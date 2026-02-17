@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/slauger/helmet/compare/v1.0.10...v1.0.11) (2026-02-17)
+
+
+### Bug Fixes
+
+* **deps:** update registry.access.redhat.com/ubi9/ubi docker digest to cecb1cd ([#229](https://github.com/slauger/helmet/issues/229)) ([68b36f5](https://github.com/slauger/helmet/commit/68b36f595871803f3638aefda0e371bae1d2d0a3))
+
 ## [1.0.10](https://github.com/slauger/helmet/compare/v1.0.9...v1.0.10) (2026-02-07)
 
 
