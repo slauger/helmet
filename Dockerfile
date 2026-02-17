@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi@sha256:b8923f58ef6aebe2b8f543f8f6c5af15c6f9aeeef34ba332f33bf7610012de0c AS builder
+FROM registry.access.redhat.com/ubi9/ubi@sha256:cecb1cde7bda7c8165ae27841c2335667f8a3665a349c0d051329c61660a496c AS builder
 
 # renovate: datasource=github-tags depName=helm/helm
 ARG HELM_VERSION=3.20.0
@@ -90,7 +90,7 @@ RUN chmod +x /usr/local/bin/argocd-helmfile.sh
 RUN mkdir -p /home/argocd/cmp-server/config
 COPY plugin.yaml /home/argocd/cmp-server/config/plugin.yaml
 
-FROM registry.access.redhat.com/ubi9/ubi@sha256:b8923f58ef6aebe2b8f543f8f6c5af15c6f9aeeef34ba332f33bf7610012de0c AS runtime
+FROM registry.access.redhat.com/ubi9/ubi@sha256:cecb1cde7bda7c8165ae27841c2335667f8a3665a349c0d051329c61660a496c AS runtime
 
 ENV HELM_PLUGINS=/usr/local/helm-plugins
 
