@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v6
     - name: Build the Docker image
       run: make build
     - name: Test Docker image
       run: make test
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v6
       with:
-        node-version: 22.x
+        node-version: 24.x
     - name: Login to Docker Registry
       run: docker login -u "${{ secrets.REGISTRY_USERNAME }}" -p "${{ secrets.REGISTRY_PASSWORD }}" "${{ secrets.REGISTRY_HOST }}"
     - name: Install semantic-release and extra plugins
